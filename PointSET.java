@@ -40,6 +40,8 @@ public class PointSET {
     }
 
     public Iterable<Point2D> range(RectHV rect) {             // all points that are inside the rectangle
+        if (rect == null)
+            throw new java.lang.NullPointerException();
         ArrayList<Point2D> res = new ArrayList<>();
         for (Point2D p: set){
             if (rect.contains(p))
@@ -49,6 +51,8 @@ public class PointSET {
     }
 
     public Point2D nearest(Point2D p){             // a nearest neighbor in the set to point p; null if the set is empty
+        if (p == null)
+            throw new java.lang.NullPointerException();
         double minDist = Double.MAX_VALUE;
         Point2D res = null;
         for(Point2D point: set){
@@ -59,5 +63,7 @@ public class PointSET {
         }
         return res;
     }
-    public static void main(String[] args){}                  // unit testing of the methods (optional)
+    public static void main(String[] args) {                  // unit testing of the methods (optional)
+
+    }
 }
